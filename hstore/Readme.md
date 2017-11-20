@@ -26,7 +26,7 @@ insert into person(tax_number, attributes)
 values(
   'F1111111', 
   '"name"=>"michele", "surname"=>"capra",
-  "birth"=>"15/12/83",
+  "age": 18,
   "city"=>"Brescia",
   "state"=>"Italy",'::hstore)
 ```
@@ -44,6 +44,12 @@ SELECT * FROM person WHERE
 ```
 
 with this and other operators you can use GiST and GIN index to have your query performing better. `=` operator supports also btree indexes is we need to do comparison on the entire hstore field.
+
+Let select all people aged betwee 18 and 30 years.
+```sql
+SELECT * FROM person WHERE
+ attributes @> '"age"=>' :: hstore;
+```
 
 Lets try to update `city` field in hstore 
 ```sql

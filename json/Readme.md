@@ -115,15 +115,3 @@ Let say that for improving performance we want to add some indexes on `name` and
 CREATE INDEX name_index ON person_jsonb((attributes->>'name'));
 CREATE INDEX surname_index ON person_jsonb((attributes->>'surname'));
 ```
-
-## SQL and NoSQL data
-
-Lets create those three tables:
-
-```sql
-  CREATE TABLE person (
-    id serial primary key,
-    attributes JSON,
-    tax_code character varying
-)
-```
