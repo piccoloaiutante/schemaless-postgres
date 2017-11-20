@@ -35,7 +35,7 @@ values(
 
 Lets select `tax_number` and `city` for each person:
 ```sql
-SELECT attributes->'city' AS city, tax_number from person
+SELECT attributes->'city' AS city, tax_number FROM person
 ```
 Lets select all person that were born in `Brescia` with `@>` operator
 ```sql
@@ -44,12 +44,6 @@ SELECT * FROM person WHERE
 ```
 
 with this and other operators you can use GiST and GIN index to have your query performing better. `=` operator supports also btree indexes is we need to do comparison on the entire hstore field.
-
-Let select all people aged betwee 18 and 30 years.
-```sql
-SELECT * FROM person WHERE
- attributes @> '"age"=>' :: hstore;
-```
 
 Lets try to update `city` field in hstore 
 ```sql

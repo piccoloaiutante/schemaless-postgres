@@ -1,7 +1,7 @@
 
 ## Create test data
 
-Lets create our test table and add contraint on `name` and `surname`:
+Lets create our test table:
 
 ```sql
 CREATE TABLE person_json (
@@ -40,7 +40,7 @@ values(
   }')
 ```
 
-a json with double keys:
+a json with duplicated keys:
 ```sql
 insert into person_json(tax_code, attributes) 
 values(
@@ -63,7 +63,7 @@ psql -d demo
 [local] michele@demo=# select * from person_json;
 
 ```
-spaces, properties and key order have been preserved.
+spaces, properties and keys order have been preserved.
 
 Now lets create a table with jsonb field and see how it goes.
 
@@ -79,8 +79,8 @@ CREATE TABLE person_jsonb (
 
 Let say that we want to make sure that name and surname cannot be null in our data:
 ```sql
-    ALTER TABLE person_jsonb ADD CONSTRAINT validate_name CHECK (length(attributes->>'name') > 0 AND (attributes->>'name') IS NOT NULL );
-    ALTER TABLE person_jsonb ADD CONSTRAINT validate_surname CHECK (length(attributes->>'surname') > 0  AND (attributes->>'surname') IS NOT NULL );
+ALTER TABLE person_jsonb ADD CONSTRAINT validate_name CHECK (length(attributes->>'name') > 0 AND (attributes->>'name') IS NOT NULL );
+ALTER TABLE person_jsonb ADD CONSTRAINT validate_surname CHECK (length(attributes->>'surname') > 0  AND (attributes->>'surname') IS NOT NULL );
 ```
 
 There are even [packages](https://github.com/gavinwahl/postgres-json-schema) that are already implementing `json` validation for you at db level.
@@ -104,7 +104,7 @@ UPDATE person_jsonb SET attributes = jsonb_set(attributes, '{city}', '"Roma"') W
 
 Now lets delete `birth` attribute inside hstore
 ```sql
-UPDATE person SET attributes = attributes::jsonb - 'birth';
+UPDATE person_jsonb SET attributes = attributes::jsonb - 'birth';
 ```
 
 ## Indexes

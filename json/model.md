@@ -39,7 +39,7 @@ If we had to do it with json we would have something like this:
 }
 ```
 
-If model it as entity relation we would do something like this:
+If  we wanted to model it as entity relation we would do something like this:
 
 ```sql
 CREATE TABLE company (
