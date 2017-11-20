@@ -98,14 +98,16 @@ CREATE TABLE company_director (
 Let say that we want to collect all director's address from `company 1`:
 
 ```sql
-SELECT director.attribute->'address' FROM company 
+SELECT director.attribute->'address' AS address FROM company 
 INNER JOIN company_director ON company.id = company_director.company_id
 INNER JOIN director ON director.taxcode = company_director.taxcode
+WHERE companyname = 'Company 1'
 ```
 
 Let say that we want to get employee mean salary by company:
 
 ```sql
-SELECT AVG((employee.attribute->>'salary') :: bigint) FROM
+SELECT company.companyname, AVG((employee.attribute->>'salary') :: bigint) FROM
 company INNER JOIN employee ON company.id = employee.company_id
+GROUP BY company.companyname
 ```

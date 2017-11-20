@@ -33,9 +33,9 @@ values(
 
 ## Manipulate hstore
 
-Lets select `fiscal_code` and `city` for each person:
+Lets select `tax_number` and `city` for each person:
 ```sql
-SELECT attributes->'city' AS city, fiscal_code from person
+SELECT attributes->'city' AS city, tax_number from person
 ```
 Lets select all person that were born in `Brescia` with `@>` operator
 ```sql
@@ -53,7 +53,7 @@ SELECT * FROM person WHERE
 
 Lets try to update `city` field in hstore 
 ```sql
-UPDATE person SET attributes = attributes || '"city"=>"Roma"'::hstore WHERE fiscal_code= 'F1111111';
+UPDATE person SET attributes = attributes || '"city"=>"Roma"'::hstore WHERE tax_number= 'F1111111';
 ```
 
 Now lets delete `birth` attribute inside hstore
