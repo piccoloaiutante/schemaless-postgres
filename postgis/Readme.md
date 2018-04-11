@@ -72,4 +72,11 @@ name = 'Park Ave S' or name in ('E 18th St',
 'E 30th St',
 'E 31st St')
 ```
+## Exercise
 
+Here are some exercise that we could do:
+
+- find the street that are inside or crossing the East village
+- find the neighbourhood with most tube station
+- find the longest road 
+- finde the smallest neighbourhood
