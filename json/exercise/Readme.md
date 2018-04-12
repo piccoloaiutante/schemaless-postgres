@@ -27,15 +27,7 @@ CREATE TABLE medals
 
 ```
 
-Import data into db:
-
-
-```sql
-
-\copy edition  FROM '/users/michele/Desktop/edition.csv' DELIMITER ',' CSV HEADER;
-\copy country  FROM '/users/michele/Desktop/country.csv' DELIMITER ',' CSV HEADER;
-\copy medals  FROM '/users/michele/Desktop/medals.csv' DELIMITER ',' CSV HEADER;
-```
+Open exported sql files and copy all inserts into pgadmin and run them.
 
 ## Exercise
 
