@@ -9,13 +9,13 @@ CREATE TABLE country
 (
     country_sk serial primary key NOT NULL ,
     data jsonb
-)
+);
 
 CREATE TABLE edition
 (
     edition_sk serial primary key NOT NULL ,
     data jsonb
-)
+);
 
 CREATE TABLE medals
 (
@@ -23,7 +23,7 @@ CREATE TABLE medals
     country_sk integer NOT NULL ,
     data jsonb,
     PRIMARY KEY(edition_sk,country_sk)
-)
+);
 
 ```
 
