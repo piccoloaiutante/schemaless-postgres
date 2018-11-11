@@ -33,6 +33,8 @@ In this query we have been using 1 operator and 2 functions from ltre module:
 - `nlevel(field)`: number of level in path
 - `field1 <@ field2`: return if field1 is a descendant of field2 
 
+
+
 Lets try another query now: let see the number of schools under each college.
 
 ```sql
@@ -42,7 +44,8 @@ WHERE nlevel(path) = 3
 GROUP BY subpath(path,1,1)
 ```
 
-To achieve that we needed to 
+To achieve that we needed to:
+
 - select the name of the College with `subpath(path,1,1)`: so getting `Art` from `DIT.Art.CreativeArts)` 
 - select name of Schools with `subpath(path,2,1)`: so getting `CreativeArts` from `DIT.Art.CreativeArts)` 
 - fiter path with 3 elements with `nlevel(path) = 3`
