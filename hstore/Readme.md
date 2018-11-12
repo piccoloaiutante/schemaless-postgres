@@ -26,7 +26,7 @@ insert into person(tax_number, attributes)
 values(
   'F1111111', 
   '"name"=>"michele", "surname"=>"capra",
-  "age": 18,
+  "age"=> 18,
   "city"=>"Brescia",
   "state"=>"Italy",'::hstore)
 ```
