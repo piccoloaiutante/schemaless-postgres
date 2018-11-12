@@ -27,7 +27,7 @@ Let see what are the courses under College of Arts:
 SELECT subpath(path, 3) FROM dit WHERE path <@ 'DIT.Art' and nlevel(path)=4
 ```
 
-In this query we have been using 1 operator and 2 functions from ltre module:
+In this query we have been using 1 operator and 2 functions from ltree module:
 
 - `subpath(field, offset)`: return a subpath of ltree field starting from an offset
 - `nlevel(field)`: number of level in path
