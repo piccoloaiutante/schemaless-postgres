@@ -37,7 +37,7 @@ Lets select `tax_number` and `city` for each person:
 ```sql
 SELECT attributes->'city' AS city, tax_number FROM person
 ```
-Lets select all person that were born in `Brescia` with `@>` operator
+Lets select all people that were born in `Brescia` with `@>` operator
 ```sql
 SELECT * FROM person WHERE
  attributes @> '"city"=>"Brescia"' :: hstore;
