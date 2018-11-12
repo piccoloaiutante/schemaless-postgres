@@ -25,14 +25,14 @@ If we had to do it with json we would have something like this:
          "taxCode":"F1111112",
          "name":"John",
          "surname":"Smith",
-         "salarie":100000,
+         "salary":100000,
          "address":"34 park avenue, New York"
       },
       {
          "taxCode":"F1111113",
          "name":"Barry",
          "surname":"Red",
-         "salarie":80000,
+         "salary":80000,
          "address":"13 8th street, New York"
       }
    ]
