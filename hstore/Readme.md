@@ -43,7 +43,7 @@ SELECT * FROM person WHERE
  attributes @> '"city"=>"Brescia"' :: hstore;
 ```
 
-with this and other operators you can use GiST and GIN index to have your query performing better. `=` operator supports also btree indexes is we need to do comparison on the entire hstore field.
+with this and other operators you can use GiST and GIN index to have your query performing better. `=` operator supports also btree indexes if we need to do comparison on the entire hstore field.
 
 Lets try to update `city` field in hstore 
 ```sql
