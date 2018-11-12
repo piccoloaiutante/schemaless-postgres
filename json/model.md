@@ -49,7 +49,7 @@ CREATE TABLE company (
 
 CREATE TABLE employee (
 	taxcode character varying PRIMARY KEY,
-  company_id bigint REFERENCE compnay(id),
+  company_id bigint REFERENCE company(id),
   name character varying,
   surname character varying,
   address character varying
