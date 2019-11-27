@@ -11,7 +11,7 @@ Let see what's in those tables.
 SELECT * FROM nycstation
 ```
 
-There is a binary column called `geom` wher we have stored gis info. Let's make it readable using `ST_AsText` gis function:
+There is a binary column called `geom` where we have stored gis info. Let's make it readable using `ST_AsText` gis function:
 
 ```sql
 SELECT *,ST_AsText(geom) FROM nycstation
