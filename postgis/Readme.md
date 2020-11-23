@@ -1,7 +1,16 @@
 
+## Add extension 
+
+First thing to do we need to install data type into db
+
+```sql
+CREATE EXTENSION IF NOT EXISTS postgis
+```
+
 ## Import test data
 
-Load dump from `dataset` folder.
+Go to [dataset](../) folder.
+Load `nycnb`, `nycstation` and `nycstreet` dataset into database by copying,pasting and executing them into pgadmin.
 
 ## Quick look at data
 
@@ -74,9 +83,36 @@ name = 'Park Ave S' or name in ('E 18th St',
 ```
 ## Exercise
 
-Here are some exercise that we could do:
+- Find the streets that are inside or crossing the East village (you might want to have a look at geo-spatial fucntion documentation [here](https://postgis.net/docs/reference.html#idm11151))
+- Find the neighbourhood with most tube station
+- Find the longest road 
+- Find the smallest neighbourhood
 
-- find the street that are inside or crossing the East village
-- find the neighbourhood with most tube station
-- find the longest road 
-- finde the smallest neighbourhood
+
+
+## Solution
+
+```SQL
+select * from nycstreet where 
+ST_Crosses(geom, (select geom from nycnb where name like 'East Village')) or
+ST_Contains(geom, (select geom from nycnb where name like 'East Village'))
+order by name
+```
+
+```SQL
+select nb.name,(Select count(*) from nycstation where ST_Contains(nb.geom, geom)) as stations from nycnb nb 
+order by stations desc
+limit 1
+```
+
+```SQL
+select name, ST_length(geom) as street_length from nycstreet 
+order by street_length desc
+limit 1
+```
+
+```SQL
+select name, ST_area(geom) as nb_surface from nycnb 
+order by nb_surface asc
+limit 1
+```
