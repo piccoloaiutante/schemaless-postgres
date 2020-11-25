@@ -102,7 +102,7 @@ Lets try to update `city` field:
 UPDATE person_jsonb SET attributes = jsonb_set(attributes, '{city}', '"Roma"') WHERE tax_code= 'F1111111';
 ```
 
-Now lets delete `birth` attribute inside hstore
+Now lets delete `birth` attribute inside json
 ```sql
 UPDATE person_jsonb SET attributes = attributes::jsonb - 'birth';
 ```
