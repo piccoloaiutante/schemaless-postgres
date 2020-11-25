@@ -43,12 +43,12 @@ If  we wanted to model it as entity relation we would do something like this:
 
 ```sql
 CREATE TABLE company (
-	id serial PRIMARY KEY,
+  id serial PRIMARY KEY,
   companyName character varying,
 )
 
 CREATE TABLE employee (
-	taxcode character varying PRIMARY KEY,
+  taxcode character varying PRIMARY KEY,
   company_id bigint REFERENCE company(id),
   name character varying,
   surname character varying,
@@ -56,14 +56,14 @@ CREATE TABLE employee (
 )
 
 CREATE TABLE director (
-	taxcode character varying PRIMARY KEY,
+  taxcode character varying PRIMARY KEY,
   name character varying,
   surname character varying,
   address character varying
 )
 
 CREATE TABLE company_director (
-	company_id bigint REFERENCE company(id),
+  company_id bigint REFERENCE company(id),
   taxcode character varying REFERENCE director(taxcode),
   numberOfShares float
 )
