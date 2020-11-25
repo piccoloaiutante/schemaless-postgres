@@ -73,23 +73,23 @@ We could model it with `jsonb`:
 
 ```sql
 CREATE TABLE company (
-	id serial PRIMARY KEY,
+  id serial PRIMARY KEY,
   companyName character varying
 );
 
 CREATE TABLE employee (
-	taxcode character varying PRIMARY KEY,
+  taxcode character varying PRIMARY KEY,
   company_id bigint REFERENCES company(id),
   attribute jsonb
 );
 
 CREATE TABLE director (
-	taxcode character varying PRIMARY KEY,
+  taxcode character varying PRIMARY KEY,
   attribute jsonb
 );
 
 CREATE TABLE company_director (
-	company_id bigint REFERENCES company(id),
+  company_id bigint REFERENCES company(id),
   taxcode character varying REFERENCES director(taxcode),
   numberOfShares float
 )
