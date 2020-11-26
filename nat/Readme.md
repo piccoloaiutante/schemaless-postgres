@@ -28,7 +28,7 @@ It contains a list of ips.
 
 Lets look at couple of examples to explore some operators and functions of this data type.
 
-As first example le't try to see if there are ip addresses that are included in `94.23.0.0/16` range:
+As first example lets try to see if there are ip addresses that are included in `94.23.0.0/16` range:
 
 ```sql
 SELECT ip FROM network_addresses WHERE ip << '94.23.0.0/16'
